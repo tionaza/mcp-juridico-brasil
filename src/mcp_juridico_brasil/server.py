@@ -37,6 +37,12 @@ from mcp_juridico_brasil.monitoramento.tools import monitorar_processo
 from mcp_juridico_brasil.movimentacoes.tools import listar_movimentacoes
 from mcp_juridico_brasil.prazo.tools import calcular_proximo_prazo
 from mcp_juridico_brasil.processo.tools import buscar_processo_por_numero
+from mcp_juridico_brasil.radar.tools import (
+    radar_cadastrar_advogado,
+    radar_desativar_advogado,
+    radar_executar,
+    radar_listar_advogados,
+)
 from mcp_juridico_brasil.resumo.tools import resumir_andamento
 
 app = fastmcp.FastMCP(
@@ -67,6 +73,10 @@ app.tool()(monitorar_processo)
 app.tool()(calcular_proximo_prazo)
 app.tool()(listar_intimacoes)
 app.tool()(confirmar_leitura_intimacao)
+app.tool()(radar_listar_advogados)
+app.tool()(radar_cadastrar_advogado)
+app.tool()(radar_desativar_advogado)
+app.tool()(radar_executar)
 
 
 @app.tool()
