@@ -76,6 +76,19 @@ Exigem credenciais próprias do DJe (`DJE_CLIENT_ID`, `DJE_CLIENT_SECRET`, `DJE_
 | `listar_intimacoes` | Lista comunicações recebidas no DJe. Somente leitura; conteúdo de intimações sigilosas é suprimido | DJe (API Comunica) |
 | `confirmar_leitura_intimacao` | Confirma leitura de intimação. **Tem efeito jurídico real e inicia prazo.** Funciona em dry-run por padrão e só confirma com `confirmar=True` e `DJE_PERMITIR_CONFIRMACAO_LEITURA=true` | DJe (API Comunica) |
 
+### Radar de publicações e prazos (DJEN)
+
+Monitoramento diário do DJEN pela OAB de cada advogado do escritório (titulares e associados), com estimativa do vencimento de cada prazo e relatório em Markdown e JSON. Precisa rodar de um IP no Brasil. Guia completo em [docs/RADAR.md](docs/RADAR.md).
+
+| Ferramenta | Descrição |
+|------------|-----------|
+| `radar_listar_advogados` | Lista os advogados monitorados |
+| `radar_cadastrar_advogado` | Cadastra ou reativa um advogado (titular ou associado) |
+| `radar_desativar_advogado` | Para de monitorar um advogado sem apagar o histórico |
+| `radar_executar` | Busca as publicações no DJEN, estima os prazos e grava o relatório |
+
+Também pela linha de comando: `mcp-juridico radar advogado adicionar|listar|desativar` e `mcp-juridico radar executar`.
+
 ### Resource MCP
 
 | Resource | Descrição |
